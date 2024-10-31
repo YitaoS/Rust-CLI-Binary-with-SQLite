@@ -1,0 +1,68 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Rust with dtolnay/rust-toolchain
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable  
+
+      - name: Install dependencies
+        run: cargo fetch
+
+      # Format code
+      - name: Format code
+        run: cargo fmt --all -- --check
+
+      # Lint code
+      - name: Lint code
+        run: cargo clippy --all-targets --all-features -- -D warnings
+
+      # Run tests
+      - name: Run tests
+        run: cargo test --all
+
+      # Upload test outputs, database file, and release binary as artifacts
+      - name: Upload Artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: |
+            target/release/crud_op
+            database1.db
+            log.txt
+
+      # Set up Git for committing changes
+      - name: Configure Git
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Actions Bot"
+
+      # Stage and commit changes
+      - name: Commit Changes
+        run: |
+          git add ./*.txt
+          git add ./*.db
+          git add ./target/release/crud_op
+          git commit -m "CI/CD: Update binary file and log" || echo "No changes to commit"
+
+      # Push changes back to repository
+      - name: Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git push origin ${{ github.ref }}
+

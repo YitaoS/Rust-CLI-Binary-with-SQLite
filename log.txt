@@ -1,0 +1,16 @@
+05:29:11 [INFO] Table created successfully or already exists.
+05:29:11 [INFO] Deleted user: Tom
+05:31:26 [INFO] Table created successfully or already exists.
+05:31:26 [INFO] Inserted user: Tom with age: 30
+05:31:47 [INFO] Table created successfully or already exists.
+05:31:47 [INFO] Fetched 8 users from the database.
+05:32:22 [INFO] Table created successfully or already exists.
+05:32:22 [INFO] Deleted user: Tom
+05:32:25 [INFO] Table created successfully or already exists.
+05:32:25 [INFO] Fetched 7 users from the database.
+05:32:40 [INFO] Table created successfully or already exists.
+05:32:40 [INFO] Inserted user: Tom with age: 30
+05:32:50 [INFO] Table created successfully or already exists.
+05:32:50 [INFO] Updated age of user: Tom to 19
+05:32:58 [INFO] Table created successfully or already exists.
+05:32:58 [INFO] Fetched 8 users from the database.

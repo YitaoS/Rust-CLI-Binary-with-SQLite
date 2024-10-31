@@ -1,7 +1,7 @@
 ![CI Status](https://github.com/YitaoS/Rust-CLI-Binary-with-SQLite/actions/workflows/cicd.yml/badge.svg)
 # Rust CLI Binary: Quick Start Guide
 
-This guide provides an overview and demonstration of the **Rust CLI Binary with SQLite** project, designed to perform CRUD operations on a SQLite database directly from the command line.
+This guide provides an overview and demonstration of the **Rust CLI Binary with SQLite** project, designed to perform CRUD operations on a SQLite database directly from the command line. 
 
 VIDEO WEB: https://drive.google.com/file/d/1NJ-TXXnww_Tyc_7kTPccG4Xag_RrY81j/view?usp=sharing
 

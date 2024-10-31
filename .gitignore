@@ -64,4 +64,3 @@ test_results/
 htmlcov/
 .tox/
 .nox/
-target/

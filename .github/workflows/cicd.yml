@@ -35,6 +35,9 @@ jobs:
       - name: Run tests
         run: cargo test --all
 
+      - name: Create bin
+        run: cargo build --release
+
       # Upload test outputs, database file, and release binary as artifacts
       - name: Upload Artifacts
         if: always()
